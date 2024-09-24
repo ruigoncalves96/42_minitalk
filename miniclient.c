@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:36:02 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/24 23:55:10 by randrade         ###   ########.fr       */
+/*   Updated: 2024/09/25 00:00:19 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("Wrong format\n", 1);
 		return (1);
 	}
-	while (*argv[1])
-	{
-		if (ft_isdigit(*argv[1]) != 1)
-			return (1);
-		(argv[1])++;
-	}
+//	while (*argv[1])
+//	{
+//		if (ft_isdigit(*argv[1]) != 1)
+//			return (1);
+//		(argv[1])++;
+//	}
 	signal(SIGUSR1, &ft_signal_handle);
 	pid = ft_atoi(argv[1]);
 	if (kill(pid, 0) != 0)

@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/24 10:44:23 by randrade         ###   ########.fr       */
+/*   Created: 2024/04/12 22:52:47 by randrade          #+#    #+#             */
+/*   Updated: 2024/04/17 15:18:29 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
+/*
+#include <ctype.h>
+#include <stdio.h>
 
-#endif
+int	main(void)
+{
+	int	c = 0;
+
+	while (c <= 127)
+	{
+		printf("%c: %c\n", c, ft_tolower(c));
+		c++;
+	}
+	return (0);
+}*/

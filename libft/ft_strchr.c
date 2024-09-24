@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/24 10:44:23 by randrade         ###   ########.fr       */
+/*   Created: 2024/04/12 22:59:58 by randrade          #+#    #+#             */
+/*   Updated: 2024/04/24 15:13:17 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != (unsigned char)c && *s)
+		s++;
+	if (*s != (unsigned char)c)
+		return (NULL);
+	return ((char *)s);
+}
+/*
+#include <stdio.h>
+#include <string.h>
 
-#endif
+int	main(void)
+{
+	const char	*s = "Hello World!";
+	int	c = 'l';
+
+	printf("string : %s\n\n", s);
+	printf("char : %c\n\n", c);
+	printf("string : %s\n", ft_strchr(s, c));
+}*/

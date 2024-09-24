@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/24 10:44:23 by randrade         ###   ########.fr       */
+/*   Created: 2024/05/24 17:49:18 by randrade          #+#    #+#             */
+/*   Updated: 2024/05/24 17:51:03 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+int	ft_nbrlen(long nbr)
+{
+	int	i;
 
-#endif
+	if (nbr == 0)
+		return (1);
+	if (nbr < 0)
+		nbr *= -1;
+	i = 0;
+	while (nbr > 0)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (i);
+}

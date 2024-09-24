@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/24 10:44:23 by randrade         ###   ########.fr       */
+/*   Created: 2024/04/12 22:29:31 by randrade          #+#    #+#             */
+/*   Updated: 2024/04/17 15:18:42 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
+/*
+#include <stdio.h>
+#include <ctype.h>
 
-#endif
+int	main(void)
+{
+	int	c = 0;
+
+	while (c <= 127)
+	{
+		printf("%c: %c\n", c, ft_toupper(c));
+		c++;
+	}
+}*/

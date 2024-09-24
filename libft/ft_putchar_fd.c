@@ -1,22 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/24 10:44:23 by randrade         ###   ########.fr       */
+/*   Created: 2024/04/24 12:32:16 by randrade          #+#    #+#             */
+/*   Updated: 2024/04/24 12:37:03 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+/*
+#include <stdio.h>
 
-#endif
+int	main(void)
+{
+	ft_putchar_fd('a', 1);
+}
+*/
+/*
+
+----- Parameters -----
+
+	c: The character to output.
+	fd: The file descriptor on which to write.
+
+----- Return Value -----
+
+	None.
+
+----- Write -----
+
+	write.
+
+----- Description -----
+
+	Outputs the character ’c’ to the given file descriptor.
+
+*/

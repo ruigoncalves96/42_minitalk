@@ -15,26 +15,28 @@ OBJ_SERVER = miniserver.o
 OBJ_CLIENT = miniclient.o
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(SERVER) $(CLIENT)
 
 $(SERVER): $(LIBFT) $(OBJ_SERVER)
-	$(CC) $(OBJ_SERVER) $(LIBFT) -o $(SERVER)
+	@$(CC) $(OBJ_SERVER) $(LIBFT) -o $(SERVER)
+	@echo " --- SERVER OK ---"
 
 $(CLIENT): $(LIBFT) $(OBJ_CLIENT)
-	$(CC) $(OBJ_CLIENT) $(LIBFT) -o $(CLIENT)
+	@$(CC) $(OBJ_CLIENT) $(LIBFT) -o $(CLIENT)
+	@echo " --- CLIENT OK ---"
 
 $(LIBFT):
-	make -C $(LIBFT_PATH)
+	@make -C $(LIBFT_PATH)
 
 clean:
-	make -C $(LIBFT_PATH) clean
-	$(RM) $(OBJ_SERVER) $(OBJ_CLIENT)
+	@make -C $(LIBFT_PATH) clean
+	@$(RM) $(OBJ_SERVER) $(OBJ_CLIENT)
 
 fclean: clean
-	make -C $(LIBFT_PATH) fclean
-	$(RM) $(CLIENT) $(SERVER)
+	@make -C $(LIBFT_PATH) fclean
+	@$(RM) $(CLIENT) $(SERVER)
 
 re: fclean all
 

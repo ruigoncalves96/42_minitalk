@@ -17,18 +17,22 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
 OBJ = $(SRC:.c=.o) 
 
 all: $(NAME)
+	@echo "*** Libft created ***\n"
 
 $(NAME): $(OBJ)
-	$(LIBC) $(NAME) $(OBJ)
+	@$(LIBC) $(NAME) $(OBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
+	@echo "*** Libft Objects cleaned ***"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "*** Libft Full Cleaned ***"
+
 
 re: fclean all
 

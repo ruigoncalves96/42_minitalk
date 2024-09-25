@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 19:21:30 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/25 17:04:33 by randrade         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:19:58 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	ft_sig_config(void)
 
 int	main(void)
 {
-	ft_putstr_fd("##########\tPID: ", 1);
+	ft_putstr_fd("##########\tPID: [", 1);
 	ft_putnbr_fd(getpid(), 1);
-	ft_putstr_fd("\t##########\n\n", 1);
+	ft_putstr_fd("]\t##########\n\n", 1);
 	ft_sig_config();
 	while (1)
 	{

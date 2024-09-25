@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:37:34 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/25 10:47:02 by randrade         ###   ########.fr       */
+/*   Updated: 2024/09/25 11:45:53 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strsjoin(char *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(ptr, s1, s1_len + 1);
 	ft_strlcat(ptr, s2, s1_len + s2_len + 1);
-	free(s1);
+	if (s1)
+		free(s1);
 	return (ptr);
 }

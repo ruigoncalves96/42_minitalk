@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:36:02 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/25 10:48:49 by randrade         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:15:53 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_sendbit(char *str, int pid)
 			else
 				kill(pid, SIGUSR2);
 			i--;
-			usleep(150);
+			usleep(50);
 		}
 		str++;
 	}

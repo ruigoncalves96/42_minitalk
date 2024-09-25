@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:36:02 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/25 16:46:32 by randrade         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:12:59 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_sendbit(unsigned int c, int pid)
 			if (kill(pid, SIGUSR2) != 0)
 				return (1);
 		}
-		usleep(10);
+		usleep(50);
 		i--;
 	}
 	return (0);
@@ -73,7 +73,7 @@ int	ft_sendmessage(char *str, int pid)
 	{
 		if (kill(pid, SIGUSR2) != 0)
 			return (1);
-		usleep(10);
+		usleep(50);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 19:21:30 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/25 12:12:32 by randrade         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:21:44 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 void	ft_print_message(char c, siginfo_t *info)
 {
-//	static char	*bin_buffer;
-//	char	bin[2];
-
-//	bin[0] = c;
-//	bin[1] = '\0';
 	if (c == 0)
 	{
-//		ft_putstr_fd(bin_buffer, 1);
 		ft_putstr_fd("\n\n", 1);
 		kill(info->si_pid, SIGUSR1);
-//		free (bin_buffer);
 	}
 	else
 		ft_putchar_fd(c, 1);
-//		bin_buffer = ft_strsjoin(bin_buffer, bin);
 }
 
 void	ft_handle_signal(int signum, siginfo_t *info, void *ucontext)

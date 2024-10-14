@@ -6,11 +6,13 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:36:02 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/25 17:12:59 by randrade         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:43:26 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+t_miniclient	g_talk;
 
 int	ft_parsing_check(int argc, char *str)
 {
@@ -35,74 +37,54 @@ int	ft_parsing_check(int argc, char *str)
 	return (0);
 }
 
-int	ft_sendbit(unsigned int c, int pid)
+void	ft_sendbit(void)
 {
-	int	i;
-
-	i = 7;
-	while (i >= 0)
+	usleep(SLEEP_TIME);
+	if (((*g_talk.message >> g_talk.shift) & 1) == 1)
+		kill(g_talk.pid, SIGUSR1);
+	else
+		kill(g_talk.pid, SIGUSR2);
+	g_talk.bits++;
+	g_talk.shift--;
+	if (g_talk.bits == 8)
 	{
-		if (((c >> i) & 1) == 1)
-		{
-			if (kill(pid, SIGUSR1) != 0)
-				return (1);
-		}
-		else
-		{
-			if (kill(pid, SIGUSR2) != 0)
-				return (1);
-		}
-		usleep(50);
-		i--;
+		g_talk.bits = 0;
+		g_talk.shift = 7;
+		g_talk.message++;
 	}
-	return (0);
 }
 
-int	ft_sendmessage(char *str, int pid)
+void	ft_handle_signal(int signum)
 {
-	int	i;
-
-	while (*str)
+	if (signum == SIGUSR1)
+		ft_sendbit();
+	else if (signum == SIGUSR2)
 	{
-		if (ft_sendbit(*str, pid) != 0)
-			return (1);
-		str++;
+		ft_putstr_fd("Message delivered\n", 1);
+		exit(0);
 	}
-	i = 0;
-	while (i < 8)
-	{
-		if (kill(pid, SIGUSR2) != 0)
-			return (1);
-		usleep(50);
-		i++;
-	}
-	return (0);
-}
-
-void	ft_signal_handle(int signum)
-{
-	(void)signum;
-	ft_putstr_fd("\n*** Message delivered with success ***\n\n", 1);
 }
 
 int	main(int argc, char *argv[])
 {
-	int	pid;
-
 	if (ft_parsing_check(argc, argv[1]) == 1)
 		return (1);
-	signal(SIGUSR1, &ft_signal_handle);
-	pid = ft_atoi(argv[1]);
-	if (pid <= 0 || kill(pid, 0) != 0)
+	g_talk.message = argv[2];
+	g_talk.bits = 0;
+	g_talk.shift = 7;
+	g_talk.pid = ft_atoi(argv[1]);
+	if (g_talk.pid <= 0 || kill(g_talk.pid, 0) != 0)
 	{
 		ft_putstr_fd("\n-xxx- Wrong PID connection! Please, try again. ", 1);
 		ft_putstr_fd("-xxx-\n\n", 1);
 		return (1);
 	}
-	if (ft_sendmessage(argv[2], pid) != 0)
+	signal(SIGUSR1, ft_handle_signal);
+	signal(SIGUSR2, ft_handle_signal);
+	ft_sendbit();
+	while (1)
 	{
-		printf("\n-xxx- Failed to send message! Please, try again. -xxx-\n\n");
-		return (1);
+		pause();
 	}
 	return (0);
 }

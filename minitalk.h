@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/10/14 12:35:50 by randrade         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:59:36 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,28 @@
 # include <stdlib.h>
 
 # ifndef SLEEP_TIME
-#  define SLEEP_TIME 40
+#  define SLEEP_TIME 0
 # endif
 
 typedef struct s_miniclient
 {
 	pid_t	pid;
 	char	*message;
+	unsigned int		len;
 	int		bits;
 	int		shift;
+	int		siginfo;
+	int		stage;
 }	t_miniclient;
 
 typedef struct s_miniserver
 {
 	pid_t	pid;
-	char	bytes;
+	char	*message;
+	unsigned int		bytes;
 	int		bits;
 	int		siginfo;
+	int		stage;
 }	t_miniserver;
 
 #endif

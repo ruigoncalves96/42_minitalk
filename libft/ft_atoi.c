@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:23:26 by randrade          #+#    #+#             */
-/*   Updated: 2024/04/18 00:17:33 by randrade         ###   ########.fr       */
+/*   Updated: 2024/10/15 16:40:56 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	pos_neg;
 
+	if (!str)
+		return (0);
 	value = 0;
 	i = 0;
 	pos_neg = 1;

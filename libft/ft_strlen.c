@@ -6,13 +6,13 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:54:02 by randrade          #+#    #+#             */
-/*   Updated: 2024/09/30 17:02:12 by randrade         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:47:53 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	unsigned int	i;
 

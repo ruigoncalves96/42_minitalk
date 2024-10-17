@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: randrade <randrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 19:22:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/10/16 14:59:36 by randrade         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:37:43 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,25 @@
 # include <signal.h>
 # include <stdlib.h>
 
-# ifndef SLEEP_TIME
-#  define SLEEP_TIME 0
-# endif
-
 typedef struct s_miniclient
 {
-	pid_t	pid;
-	char	*message;
-	unsigned int		len;
-	int		bits;
-	int		shift;
-	int		siginfo;
-	int		stage;
+	unsigned int	len;
+	pid_t			pid;
+	char			*message;
+	int				bits;
+	int				shift;
+	int				siginfo;
+	int				stage;
 }	t_miniclient;
 
 typedef struct s_miniserver
 {
-	pid_t	pid;
-	char	*message;
-	unsigned int		bytes;
-	int		bits;
-	int		siginfo;
-	int		stage;
+	unsigned int	bytes;
+	pid_t			pid;
+	char			*message;
+	int				bits;
+	int				siginfo;
+	int				stage;
 }	t_miniserver;
 
 #endif

@@ -40,11 +40,11 @@ $(CLIENT): $(LIBFT) $(OBJ_CLIENT)
 
 $(SERVER_BONUS): $(LIBFT) $(BONUS_OBJ_SERVER)
 	@$(CC) $(BONUS_OBJ_SERVER) $(LIBFT) -o $(SERVER_BONUS)
-	@echo " --- SERVER OK ---"
+	@echo " --- SERVER BONUS OK ---"
 
 $(CLIENT_BONUS): $(LIBFT) $(BONUS_OBJ_CLIENT)
 	@$(CC) $(BONUS_OBJ_CLIENT) $(LIBFT) -o $(CLIENT_BONUS)
-	@echo " --- SERVER OK ---"
+	@echo " --- CLIENT BONUS OK ---"
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
